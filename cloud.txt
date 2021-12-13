@@ -1,0 +1,56 @@
+WebApplication
+
+create a java web application
+
+check whether the glassfish server has been selected
+
+create a servlet by right clicking the project name
+
+provide class name and package name
+
+index.html
+
+<html>
+<title></title>
+<body>
+<form action="path of the servlet">
+<input type="text" name="name">
+<input type="submit">
+</form>
+</body>
+</html>
+
+
+Servlet.java
+
+import java.sql.*;
+
+String reg=request.getParameter("reg");
+int m1=Integer.parseInt(request.getParameter("m1"));
+
+Connection con=null;
+Statement st=null;
+ResultSet rs=null;
+
+try{
+
+Class.forName("org.apache.derby.jdbc.ClientDriver");
+con=DriverManager.getConnection("jdbc:derby://localhost:1527/sample","username","password");
+st=con.createStatement();
+st.executeUpdate("insert into tablename values('"+reg+"','"+m1+"')");
+
+out.println("Record inserted");
+
+
+
+} 
+catch(Exception e){
+
+out.println(e);
+
+}
+
+
+right click the library and add jdbc driver
+
+
